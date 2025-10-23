@@ -97,7 +97,7 @@ ScoutAI is a comprehensive football scouting platform that leverages advanced an
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YOURUSERNAME/scoutai.git
+git clone https://github.com/codemassel/scoutai.git
 cd scoutai
 ```
 
@@ -228,9 +228,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+**CODEMASSEL**
+- GitHub: [@codemassel](https://github.com/codemassel)
 
 ## 🙏 Acknowledgments
 
