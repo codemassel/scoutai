@@ -97,11 +97,20 @@ ScoutAI is a comprehensive football scouting platform that leverages advanced an
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/codemassel/scoutai.git
+git clone https://github.com/YOURUSERNAME/scoutai.git
 cd scoutai
 ```
 
-2. **Start infrastructure services**
+2. **Setup environment variables**
+```bash
+# Copy the example env file
+cp .env.example .env
+
+# Edit .env with your credentials (NEVER commit this file!)
+# Use a text editor to set secure passwords
+```
+
+3. **Start infrastructure services**
 ```bash
 docker-compose up -d
 ```
@@ -219,13 +228,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-**DEVELOPER**
-- GitHub: [@codemassel](https://github.com/codemassel)
+**Your Name**
+- GitHub: [@yourusername](https://github.com/yourusername)
+- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
 
 ## 🙏 Acknowledgments
 
 - Data sources: FBref, Transfermarkt
 - Inspired by modern scouting methodologies
+- Built with ❤️ for the football community
 
 ---
 

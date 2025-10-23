@@ -1,25 +1,23 @@
 version: '3.8'
 
 services:
-  # PostgreSQL Database
+  # PostgreSQL
   postgres:
     image: postgres:15-alpine
     container_name: scoutai-postgres
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      POSTGRES_DB: scoutai
-      POSTGRES_USER: scoutai_user
-      POSTGRES_PASSWORD: scoutai_password_dev
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - scoutai-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U scoutai_user -d scoutai"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -40,25 +38,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    command: redis-server --appendonly yes
-
-  # pgAdmin (Optional - Database Management UI)
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: scoutai-pgadmin
-    restart: unless-stopped
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@scoutai.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    ports:
-      - "5050:80"
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-    networks:
-      - scoutai-network
-    depends_on:
-      - postgres
+    command: redis-server --appendonly yes ${REDIS_PASSWORD:+--requirepass $REDIS_PASSWORD}
 
 volumes:
   postgres_data:
