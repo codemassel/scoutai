@@ -4,6 +4,20 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Application Properties ###
+application.properties
+application-*.properties
+!application.properties.example
+
+### Sensitive Data ###
+.env
+.env.*
+*.env
+
+### Build ###
+target/
+build/
+
 ### STS ###
 .apt_generated
 .classpath
